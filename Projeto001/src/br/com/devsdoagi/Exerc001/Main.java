@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
+        Atvd001.executar();
+        Atvd002.executar();
 
         /*
         System.out.println("Hello, World!");

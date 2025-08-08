@@ -3,7 +3,7 @@ package br.com.devsdoagi.Exerc001;
 import java.util.Scanner;
 
 public class Atvd001 {
-    public void executar(){
+    public static void executar(){
         int opcao, num;
 
         Scanner sc = new Scanner(System.in);
