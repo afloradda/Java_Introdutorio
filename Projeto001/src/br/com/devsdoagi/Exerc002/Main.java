@@ -7,6 +7,9 @@ public class Main {
         double[] p = {100, 102, 104, 110, 100};
 
 
+//        double resultado = Atvd002.calcularJurosCompostos(1000, 2, 6);
+//        System.out.println(String.valueOf(resultado));
+
         /*
         Atvd002.maiorPreco(precos);
         Atvd002.menorPreco(precos);
