@@ -1,5 +1,6 @@
 package br.com.devsdoagi.Exerc002;
 
+/* PRIMEIRO BLOCO - MÉTODOS */
 
 public class Atvd001 {
 

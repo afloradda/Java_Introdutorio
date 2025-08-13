@@ -1,5 +1,7 @@
 package br.com.devsdoagi.Exerc002;
 
+/* SEGUNDO BLOCO - VETORES */
+
 public class Atvd002 {
     /*
         todo: 1. Receba os preços de fechamento de uma ação durante 10 dias.
@@ -99,6 +101,8 @@ public class Atvd002 {
                 }
             }
         }
+
+        return null;
     }
 
     public static double lucroTotal(double[] compra, double[] venda){
@@ -148,6 +152,8 @@ public class Atvd002 {
                 return null;
             }
         }
+
+        return null;
     }
 
 
