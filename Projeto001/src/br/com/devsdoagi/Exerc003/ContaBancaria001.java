@@ -1,6 +1,8 @@
 package br.com.devsdoagi.Exerc003;
 
-public class ContaBancaria {
+/* BLOCO CRIAÇÃO DE CLASSES ORIENTADAS A OBJETO */
+
+public class ContaBancaria001 {
     public String titular;
     public String numeroConta;
     public double saldo;

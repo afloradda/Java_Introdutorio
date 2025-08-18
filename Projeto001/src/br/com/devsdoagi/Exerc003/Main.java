@@ -16,7 +16,7 @@ public class Main {
          */
 
         /*
-        Atividade 1: Produto
+        Atividade 1 Lista 1: Produto
 
         Produto p1 = new Produto();
         Produto p2 = new Produto();
@@ -33,11 +33,10 @@ public class Main {
 
         p2.removerEstoque(1);
         p2.exibirDados();
-
         */
 
         /*
-        Atividade 2: Conta Bancaria
+        Atividade 2 Lista 1: Conta Bancaria
 
         ContaBancaria c1 = new ContaBancaria();
         ContaBancaria c2 = new ContaBancaria();
@@ -49,7 +48,36 @@ public class Main {
         c2.saldo = 200.00;
         c2.sacar(100.00);
         c2.exibirSaldo();
+        */
 
+        /* Atividade 1 Lista 2: Conta Bancaria
+
+        ContaBancaria002 cb = new ContaBancaria002();
+
+        cb.setTitular("Ana Julia de Carvalho Leandro");
+        cb.setNumeroConta("123-456");
+
+        cb.depositar(2000.00);
+        cb.sacar(200);
+        cb.exibirExtrato();
+        */
+
+        /* Atividade 2 Lista 2: Cliente VIP
+
+        ClienteVip cv = new ClienteVip();
+
+        cv.setNome("Ana Julia de Carvalho Leandro");
+        cv.setCpf("23450-0987/0");
+        cv.setLimiteCredito(2000);
+
+        cv.exibirCliente();
+        */
+
+        /* Atividade 1 Lista 3: Conta Bancaria
+
+        ContaBancaria003 cb1 = new ContaBancaria003();
+        ContaBancaria003 cb2 = new ContaBancaria003("Eliana de Carvalho", "8765-4321");
+        ContaBancaria003 cb3 = new ContaBancaria003("Ana Julia de Carvalho Leandro", "1234-5678", 1000.00);
         */
     }
 }
