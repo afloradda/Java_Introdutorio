@@ -16,30 +16,10 @@ public class Main {
          */
 
         /*
-        Atividade 1 Lista 1: Produto
-
-        Produto p1 = new Produto();
-        Produto p2 = new Produto();
-
-        p1.nome = "Notebook";
-        p1.preco = 2000.00;
-        p1.quantidade = 30;
-
-        p1.exibirDados();
-
-        p2.nome = "Celular";
-        p2.preco = 1500.00;
-        p2.quantidade = 11;
-
-        p2.removerEstoque(1);
-        p2.exibirDados();
-        */
-
-        /*
         Atividade 2 Lista 1: Conta Bancaria
 
-        ContaBancaria c1 = new ContaBancaria();
-        ContaBancaria c2 = new ContaBancaria();
+        ContaBancaria001 c1 = new ContaBancaria001();
+        ContaBancaria001 c2 = new ContaBancaria001();
 
         c1.saldo = 1500.00;
         c1.depositar(500.00);
@@ -60,17 +40,6 @@ public class Main {
         cb.depositar(2000.00);
         cb.sacar(200);
         cb.exibirExtrato();
-        */
-
-        /* Atividade 2 Lista 2: Cliente VIP
-
-        ClienteVip cv = new ClienteVip();
-
-        cv.setNome("Ana Julia de Carvalho Leandro");
-        cv.setCpf("23450-0987/0");
-        cv.setLimiteCredito(2000);
-
-        cv.exibirCliente();
         */
 
         /* Atividade 1 Lista 3: Conta Bancaria
