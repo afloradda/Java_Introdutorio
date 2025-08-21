@@ -39,4 +39,4 @@ Tecnologias utilizadas
 
 ## 🎓 Agradecimento  
 
-Agradecimento especial ao **Professor Kesed** pela tutoria e à parceria entre **AgiBank** e **Prosper Talents** pela oportunidade de aprendizado.  
+Agradecimento especial ao **Professor Kesede** pela tutoria e à parceria entre **AgiBank** e **Prosper Talents** pela oportunidade de aprendizado.  
