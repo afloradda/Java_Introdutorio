@@ -1,4 +1,4 @@
-package br.com.devsdoagi.Exerc009;
+package br.com.devsdoagi.Exerc009.MiniHackaton002;
 
 abstract class Investimento {
     private double valorInicial;

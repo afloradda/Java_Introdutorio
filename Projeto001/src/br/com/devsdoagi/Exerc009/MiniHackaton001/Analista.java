@@ -1,4 +1,4 @@
-package br.com.devsdoagi.Exerc009;
+package br.com.devsdoagi.Exerc009.MiniHackaton001;
 
 public class Analista extends Funcionario {
     private Funcionario funcionario;
