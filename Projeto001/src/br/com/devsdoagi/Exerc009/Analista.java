@@ -11,11 +11,4 @@ public class Analista extends Funcionario {
     public double getBonus() {
         return bonus;
     }
-
-    /*
-    public void retornoSalario(){
-        System.out.println(getNome() + ", Segue seu salário deste mês após a aplicação do bônus mensal (" + getBonus() +"): " + (getSalario() + getBonus()));
-    }
-
-    */
 }

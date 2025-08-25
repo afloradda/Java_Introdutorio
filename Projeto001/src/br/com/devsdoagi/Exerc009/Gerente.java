@@ -18,10 +18,4 @@ public class Gerente extends Funcionario {
         return bonus;
     }
 
-    /*
-    public String retornoSalario(){
-        return getNome() + ", Segue seu salário deste mês após a aplicação do bônus mensal (" + getBonus() +"): " + (getSalario() + getBonus());
-    }
-
-     */
 }
