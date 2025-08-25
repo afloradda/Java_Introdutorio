@@ -1,5 +1,17 @@
 package br.com.devsdoagi.Exerc009;
 
+    /*
+        Correção Mini Hackaton
+    - Encapsulamento 20
+    - Getters/setters 20
+    - Contrutor 10
+    - Herença 20
+    - Bonus 20
+    - Execução 10
+    Total = 100
+
+    */
+
 public class MainHackaton001 {
     public static void main(String[] args) {
         Funcionario f1 = new Funcionario("Ana Julia C Leandro", 2000);
