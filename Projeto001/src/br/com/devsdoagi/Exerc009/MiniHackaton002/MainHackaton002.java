@@ -1,5 +1,7 @@
 package br.com.devsdoagi.Exerc009.MiniHackaton002;
 
+// 100 :)
+
 public class MainHackaton002 {
     public static void main(String[] args) {
         Investimento[] listagem = {
