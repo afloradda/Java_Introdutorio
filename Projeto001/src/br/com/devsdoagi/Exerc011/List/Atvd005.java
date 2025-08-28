@@ -11,7 +11,30 @@ package br.com.devsdoagi.Exerc011.List;
 
     */
 
+import java.util.List;
+
 public class Atvd005 {
+    public static void registrarTransacao(List<String> historico, String transacao) {
+        historico.add(transacao);
+    }
+
+    protected static boolean buscarTransacao(List<String> historico, String transacao) {
+        boolean exite = false;
+        if (historico.contains(transacao)) {
+            exite = true;
+        }
+
+        return exite;
+    }
+
+    protected static void exibirHistorico(List<String> historico) {
+        System.out.println("Historico de Transações: ");
+        for(String indice : historico){
+            System.out.println("- " + indice);
+        }
+    }
+
+
 
     public static void main(String[] args) {
 
