@@ -19,8 +19,8 @@ public class BancoDigitalHackaton {
             System.out.println("Cliente cadastrado!");
         }
         // Dica: pedir nome e CPF, criar objeto Cliente
-        // Adicionar no Set de clientes
-        // Garantir que CPF não esteja duplicado (Set já ajuda nisso)
+        // ✅ Adicionar no Set de clientes
+        // ✅ Garantir que CPF não esteja duplicado (Set já ajuda nisso)
     }
 
     private static void cadastrarConta(Scanner sc) {

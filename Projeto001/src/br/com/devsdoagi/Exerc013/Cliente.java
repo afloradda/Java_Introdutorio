@@ -17,10 +17,15 @@ public class Cliente {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(String cpf) {
+        if (cpf == null || cpf != getCpf()) { return false; }
+        return true;
+        /*
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
         return Objects.equals(cpf, cliente.cpf);
+
+         */
     }
 
     @Override
