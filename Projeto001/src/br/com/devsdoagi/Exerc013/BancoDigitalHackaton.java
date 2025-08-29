@@ -36,23 +36,42 @@ public class BancoDigitalHackaton {
         // Dica: solicitar CPF do cliente
         // Verificar se cliente existe no Set
         // Criar Conta e adicionar no Map de contas usando numeroConta como chave
-        System.out.println("Digite o cpf: ");
+        System.out.println("Digite o CPF: ");
         String cpf = sc.nextLine();
 
-        boolean existe = false;
 
         for (Cliente cliente : clientes) {
             if (cliente.getCpf().equals(cpf)) {
-                existe = true;
-                System.out.println("CPF encontrado!");
+
+                System.out.println("Olá, " + cliente.getNome() + "! Estamos quase finalizando o cadastro de sua conta.");
+                System.out.println("Digite o numero: ");
+                int numero = sc.nextInt();
+
+                Conta conta = new Conta(numero, cliente);
+                contas.put(numero, conta);
+
+                System.out.println("Conta criada com sucesso!");
+            } else {
+                System.out.println("CPF do cliente não encontrado! Cadastrar pela opção 1.");
                 break;
             }
         }
-        //codigo
 
+        sc.nextLine();
     }
 
     private static void deposito(Scanner sc) {
+        System.out.println("Digite o número da conta: ");
+        int numero = sc.nextInt();
+
+        if (contas.containsKey(numero)) {
+            System.out.println("Digite o valor a ser depositado: ");
+            double valor = sc.nextDouble();
+            System.out.println("Realiando Deposito de: " + valor);
+
+            contas.get(numero).depositar(valor);
+        }
+        sc.nextLine();
         // Dica: solicitar número da conta e valor
         // Verificar se conta existe
         // Adicionar valor ao saldo da conta
@@ -60,6 +79,17 @@ public class BancoDigitalHackaton {
     }
 
     private static void saque(Scanner sc) {
+        System.out.println("Digite o número da conta: ");
+        int numero = sc.nextInt();
+
+        if (contas.containsKey(numero)) {
+            System.out.println("Digite o valor a ser sacado: ");
+            double valor = sc.nextDouble();
+            System.out.println("Realiando Saque de: " + valor);
+
+            contas.get(numero).sacar(valor);
+        }
+        sc.nextLine();
         // Dica: solicitar número da conta e valor
         // Verificar saldo suficiente
         // Subtrair valor do saldo
@@ -88,13 +118,13 @@ public class BancoDigitalHackaton {
                 System.out.print("Informe o valor da transferência: ");
                 valor = sc.nextDouble();
                 valorValido = true;
+                contas.get(contaOrigem).transferir(valor, contas.get(contaDestino));
             } catch (NumberFormatException e) {
                 System.out.println("Entrada inválida!");
                 sc.nextLine();
             }
         }
-        Transacoes t = new Transacoes("transferência", valor, contaOrigem, contaDestino);
-        System.out.println("Transferência realizada!");
+        sc.nextLine();
         // Dica: solicitar conta origem, conta destino e valor
         // Verificar saldo na conta origem
         // Atualizar saldos de ambas as contas
@@ -102,15 +132,26 @@ public class BancoDigitalHackaton {
     }
 
     private static void consultarSaldo(Scanner sc) {
+        System.out.println("Digite o número da conta para consultar saldo: ");
+        int n = sc.nextInt();
+
+        if (contas.containsKey(n)) {
+            System.out.println("Saldo Atual:" + contas.get(n).getSaldo());
+        }
+
+        sc.nextLine();
         // Dica: solicitar número da conta
         // Exibir saldo atual
     }
 
     private static void extrato(Scanner sc) {
-        String numeroConta;
+        int numero;
+
         System.out.print("Informe o número da conta: ");
-        numeroConta = sc.nextLine();
-        contas.get(numeroConta).mostrarExtrato();
+        numero = sc.nextInt();
+
+        contas.get(numero).mostrarExtrato();
+        sc.nextLine();
         // Dica: solicitar número da conta
         // Listar todas as transações registradas na conta
     }

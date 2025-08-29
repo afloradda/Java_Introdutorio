@@ -52,6 +52,7 @@ public class Conta {
             setSaldo(getSaldo() - valor);
             destino.setSaldo(destino.getSaldo() + valor);
             extrato.add(new Transacoes("Tranferência", valor, getNumero(), destino.getNumero()));
+            System.out.println("Transferência realizada!");
         }
     }
 
