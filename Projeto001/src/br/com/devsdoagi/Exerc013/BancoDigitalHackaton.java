@@ -5,12 +5,18 @@ import java.util.*;
 public class BancoDigitalHackaton {
 
     private static void cadastrarCliente(Scanner sc) {
-        String cpf;
-        String nome;
-        System.out.print("Informe o nome: ");
-        nome = sc.nextLine();
-        System.out.print("Informe o CPF: ");
-        cpf = sc.nextLine();
+        String cpf = null;
+        String nome = null;
+        boolean cpfValido = false;
+        while(!cpfValido) {
+            String regexCpf = "\\d{3}(?:\\.?|-?)\\d{3}(?:\\.?|-?)\\d{3}(?:\\.?|-?)\\d{2}";
+            System.out.print("Informe o nome: ");
+            nome = sc.nextLine();
+            System.out.print("Informe o CPF: ");
+            cpf = sc.nextLine();
+            if(cpf.matches(regexCpf)) cpfValido = true;
+            else System.out.println("O CPF deve conter 11 dígitos.");
+        }
         Cliente c = new Cliente(nome, cpf);
         if(!clientes.add(c)){
             System.out.println("Cliente já existe!");
@@ -27,7 +33,21 @@ public class BancoDigitalHackaton {
         // Dica: solicitar CPF do cliente
         // Verificar se cliente existe no Set
         // Criar Conta e adicionar no Map de contas usando numeroConta como chave
-    }
+        System.out.println("Digite o cpf: ");
+        String cpf = sc.nextLine();
+
+        boolean existe = false;
+
+        for (Cliente cliente : clientes){
+            if(cliente.getCpf().equals(cpf)){
+                existe = true;
+                System.out.println("CPF encontrado!");
+                break;
+            }
+        }
+        //codigo
+
+}
 
     private static void deposito(Scanner sc) {
         // Dica: solicitar número da conta e valor
@@ -61,6 +81,7 @@ public class BancoDigitalHackaton {
     }
 
     private static void listarClientes() {
+        clientes.forEach(System.out::println);
         // Dica: percorrer Set de clientes e exibir informações
     }
 
@@ -70,6 +91,7 @@ public class BancoDigitalHackaton {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean rodando = true;
+        int opcao;
 
         while (rodando) {
             System.out.println("\n=== MENU BANCO DIGITAL ===");
@@ -84,7 +106,11 @@ public class BancoDigitalHackaton {
             System.out.println("9 - Sair");
             System.out.print("Escolha: ");
 
-            int opcao = Integer.parseInt(sc.nextLine());
+            try {
+                opcao = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                opcao = 0;
+            }
 
             switch (opcao) {
                 case 1:
