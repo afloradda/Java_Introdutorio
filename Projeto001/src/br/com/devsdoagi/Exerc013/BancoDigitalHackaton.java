@@ -31,36 +31,56 @@ public class BancoDigitalHackaton {
 
     private static void cadastrarConta(Scanner sc) {
         // Dica: solicitar CPF do cliente
-        // Verificar se cliente existe no Set
-        // Criar Conta e adicionar no Map de contas usando numeroConta como chave
-        System.out.println("Digite o cpf: ");
+        // ✅ Verificar se cliente existe no Set
+        // ✅ Criar Conta e adicionar no Map de contas usando numeroConta como chave
+        System.out.println("Digite o CPF: ");
         String cpf = sc.nextLine();
 
-        boolean existe = false;
 
         for (Cliente cliente : clientes){
             if(cliente.getCpf().equals(cpf)){
-                existe = true;
-                System.out.println("CPF encontrado!");
+                System.out.println("Olá, " + cliente.getNome() + "Estamos quase finalizando o cadastro de sua conta.");
+                System.out.println("Digite o numero: ");
+                int numero = sc.nextInt();
+
+                Conta conta = new Conta(numero, cliente);
+            } else {
+                System.out.println("CPF do cliente não encontrado! Cadastrar pela opção 1.");
                 break;
             }
         }
-        //codigo
-
 }
 
     private static void deposito(Scanner sc) {
+        System.out.println("Digite o número da conta: ");
+        int numero = sc.nextInt();
+
+        if(contas.containsKey(numero)) {
+            double valor = sc.nextDouble();
+            System.out.println("Realiando Depósito de: " + valor);
+
+            contas.get(numero).depositar(valor);
+        }
         // Dica: solicitar número da conta e valor
-        // Verificar se conta existe
-        // Adicionar valor ao saldo da conta
+        // ✅ Verificar se conta existe
+        // ✅ Adicionar valor ao saldo da conta
         // Registrar transação no extrato da conta
     }
 
     private static void saque(Scanner sc) {
+        System.out.println("Digite o número da conta: ");
+        int numero = sc.nextInt();
+
+        if(contas.containsKey(numero)) {
+            double valor = sc.nextDouble();
+            System.out.println("Realiando Saque de: " + valor);
+
+            contas.get(numero).sacar(valor);
+        }
         // Dica: solicitar número da conta e valor
-        // Verificar saldo suficiente
-        // Subtrair valor do saldo
-        // Registrar transação no extrato da conta
+        // ✅ Verificar saldo suficiente
+        // ✅ Subtrair valor do saldo
+        // ✅ Registrar transação no extrato da conta
     }
 
     private static void transferencia(Scanner sc) {
@@ -71,8 +91,17 @@ public class BancoDigitalHackaton {
     }
 
     private static void consultarSaldo(Scanner sc) {
+        System.out.println("Digite o número da conta: ");
+        int numero = sc.nextInt();
+
+        if(contas.containsKey(numero)) {
+            System.out.println("Saldo atual: " + contas.get(numero).getSaldo());
+        } else {
+            System.out.println("Conta não encontrada em nossa estrutura de dados! Cadastrar na opção 2.");
+        }
+
         // Dica: solicitar número da conta
-        // Exibir saldo atual
+        // ✅ Exibir saldo atual
     }
 
     private static void extrato(Scanner sc) {

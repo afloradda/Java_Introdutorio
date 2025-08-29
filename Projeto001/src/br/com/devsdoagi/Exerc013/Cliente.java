@@ -13,8 +13,9 @@ public class Cliente {
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
+    public String getNome() { return this.nome; }
 
     @Override
     public boolean equals(String cpf) {
