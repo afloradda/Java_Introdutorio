@@ -33,7 +33,21 @@ public class BancoDigitalHackaton {
         // Dica: solicitar CPF do cliente
         // Verificar se cliente existe no Set
         // Criar Conta e adicionar no Map de contas usando numeroConta como chave
-    }
+        System.out.println("Digite o cpf: ");
+        String cpf = sc.nextLine();
+
+        boolean existe = false;
+
+        for (Cliente cliente : clientes){
+            if(cliente.getCpf().equals(cpf)){
+                existe = true;
+                System.out.println("CPF encontrado!");
+                break;
+            }
+        }
+        //codigo
+
+}
 
     private static void deposito(Scanner sc) {
         // Dica: solicitar número da conta e valor
