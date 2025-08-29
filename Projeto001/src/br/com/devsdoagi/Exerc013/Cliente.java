@@ -17,16 +17,11 @@ public class Cliente {
     }
     public String getNome() { return this.nome; }
 
-    @Override
-    public boolean equals(String cpf) {
-        if (cpf == null || cpf != getCpf()) { return false; }
-        return true;
-        /*
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(cpf, cliente.cpf);
 
-         */
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Cliente cliente)) return false;
+        return Objects.equals(cpf, cliente.cpf);
     }
 
     @Override

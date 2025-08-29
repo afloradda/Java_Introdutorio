@@ -7,20 +7,23 @@ public class BancoDigitalHackaton {
     private static void cadastrarCliente(Scanner sc) {
         String cpf = null;
         String nome = null;
+        String regexCpf = "\\d{3}(?:\\.?|-?)\\d{3}(?:\\.?|-?)\\d{3}(?:\\.?|-?)\\d{2}";
+        String regexFormatacaoCpf = "(\\d{3})(\\d{3})(\\d{3})(\\d{2})";
         boolean cpfValido = false;
-        while(!cpfValido) {
-            String regexCpf = "\\d{3}(?:\\.?|-?)\\d{3}(?:\\.?|-?)\\d{3}(?:\\.?|-?)\\d{2}";
+        while (!cpfValido) {
             System.out.print("Informe o nome: ");
             nome = sc.nextLine();
             System.out.print("Informe o CPF: ");
             cpf = sc.nextLine();
-            if(cpf.matches(regexCpf)) cpfValido = true;
-            else System.out.println("O CPF deve conter 11 dígitos.");
+            if (cpf.matches(regexCpf)) {
+                cpfValido = true;
+                cpf = cpf.replaceFirst(regexFormatacaoCpf, "$1.$2.$3-$4");
+            } else System.out.println("O CPF deve conter 11 dígitos.");
         }
         Cliente c = new Cliente(nome, cpf);
-        if(!clientes.add(c)){
+        if (!clientes.add(c)) {
             System.out.println("Cliente já existe!");
-        }else{
+        } else {
             clientes.add(c);
             System.out.println("Cliente cadastrado!");
         }
@@ -31,59 +34,67 @@ public class BancoDigitalHackaton {
 
     private static void cadastrarConta(Scanner sc) {
         // Dica: solicitar CPF do cliente
-        // ✅ Verificar se cliente existe no Set
-        // ✅ Criar Conta e adicionar no Map de contas usando numeroConta como chave
-        System.out.println("Digite o CPF: ");
+        // Verificar se cliente existe no Set
+        // Criar Conta e adicionar no Map de contas usando numeroConta como chave
+        System.out.println("Digite o cpf: ");
         String cpf = sc.nextLine();
 
+        boolean existe = false;
 
-        for (Cliente cliente : clientes){
-            if(cliente.getCpf().equals(cpf)){
-                System.out.println("Olá, " + cliente.getNome() + "Estamos quase finalizando o cadastro de sua conta.");
-                System.out.println("Digite o numero: ");
-                int numero = sc.nextInt();
-
-                Conta conta = new Conta(numero, cliente);
-            } else {
-                System.out.println("CPF do cliente não encontrado! Cadastrar pela opção 1.");
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf)) {
+                existe = true;
+                System.out.println("CPF encontrado!");
                 break;
             }
         }
-}
+        //codigo
+
+    }
 
     private static void deposito(Scanner sc) {
-        System.out.println("Digite o número da conta: ");
-        int numero = sc.nextInt();
-
-        if(contas.containsKey(numero)) {
-            double valor = sc.nextDouble();
-            System.out.println("Realiando Depósito de: " + valor);
-
-            contas.get(numero).depositar(valor);
-        }
         // Dica: solicitar número da conta e valor
-        // ✅ Verificar se conta existe
-        // ✅ Adicionar valor ao saldo da conta
+        // Verificar se conta existe
+        // Adicionar valor ao saldo da conta
         // Registrar transação no extrato da conta
     }
 
     private static void saque(Scanner sc) {
-        System.out.println("Digite o número da conta: ");
-        int numero = sc.nextInt();
-
-        if(contas.containsKey(numero)) {
-            double valor = sc.nextDouble();
-            System.out.println("Realiando Saque de: " + valor);
-
-            contas.get(numero).sacar(valor);
-        }
         // Dica: solicitar número da conta e valor
-        // ✅ Verificar saldo suficiente
-        // ✅ Subtrair valor do saldo
-        // ✅ Registrar transação no extrato da conta
+        // Verificar saldo suficiente
+        // Subtrair valor do saldo
+        // Registrar transação no extrato da conta
     }
 
     private static void transferencia(Scanner sc) {
+        int contaOrigem = 0;
+        int contaDestino = 0;
+        double valor = 0;
+        boolean valorValido = false;
+        while (!valorValido) {
+            try {
+                System.out.print("Informe o número da conta de origem: ");
+                contaOrigem = sc.nextInt();
+                if (!contas.containsKey(contaOrigem)) {
+                    System.out.println("Conta não encontrada!");
+                    break;
+                }
+                System.out.print("Informe o número da conta de destino: ");
+                contaDestino = sc.nextInt();
+                if (!contas.containsKey(contaDestino)) {
+                    System.out.println("Conta não encontrada!");
+                    break;
+                }
+                System.out.print("Informe o valor da transferência: ");
+                valor = sc.nextDouble();
+                valorValido = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida!");
+                sc.nextLine();
+            }
+        }
+        Transacoes t = new Transacoes("transferência", valor, contaOrigem, contaDestino);
+        System.out.println("Transferência realizada!");
         // Dica: solicitar conta origem, conta destino e valor
         // Verificar saldo na conta origem
         // Atualizar saldos de ambas as contas
@@ -91,20 +102,15 @@ public class BancoDigitalHackaton {
     }
 
     private static void consultarSaldo(Scanner sc) {
-        System.out.println("Digite o número da conta: ");
-        int numero = sc.nextInt();
-
-        if(contas.containsKey(numero)) {
-            System.out.println("Saldo atual: " + contas.get(numero).getSaldo());
-        } else {
-            System.out.println("Conta não encontrada em nossa estrutura de dados! Cadastrar na opção 2.");
-        }
-
         // Dica: solicitar número da conta
-        // ✅ Exibir saldo atual
+        // Exibir saldo atual
     }
 
     private static void extrato(Scanner sc) {
+        String numeroConta;
+        System.out.print("Informe o número da conta: ");
+        numeroConta = sc.nextLine();
+        contas.get(numeroConta).mostrarExtrato();
         // Dica: solicitar número da conta
         // Listar todas as transações registradas na conta
     }
