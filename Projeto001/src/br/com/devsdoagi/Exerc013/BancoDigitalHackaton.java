@@ -66,7 +66,6 @@ public class BancoDigitalHackaton {
 
     private static Set<Cliente> clientes = new HashSet<>();
     private static Map<Integer, Conta> contas = new HashMap<>();
-    private static int numeroConta = 1001;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
