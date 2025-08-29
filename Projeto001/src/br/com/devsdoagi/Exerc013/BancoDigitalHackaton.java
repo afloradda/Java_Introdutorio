@@ -1,12 +1,23 @@
 package br.com.devsdoagi.Exerc013;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class BancoDigitalHackaton {
 
     private static void cadastrarCliente(Scanner sc) {
+        String cpf;
+        String nome;
+        System.out.print("Informe o nome: ");
+        nome = sc.nextLine();
+        System.out.print("Informe o CPF: ");
+        cpf = sc.nextLine();
+        Cliente c = new Cliente(nome, cpf);
+        if(!clientes.add(c)){
+            System.out.println("Cliente já existe!");
+        }else{
+            clientes.add(c);
+            System.out.println("Cliente cadastrado!");
+        }
         // Dica: pedir nome e CPF, criar objeto Cliente
         // Adicionar no Set de clientes
         // Garantir que CPF não esteja duplicado (Set já ajuda nisso)
@@ -52,7 +63,6 @@ public class BancoDigitalHackaton {
     private static void listarClientes() {
         // Dica: percorrer Set de clientes e exibir informações
     }
-
 
     private static Set<Cliente> clientes = new HashSet<>();
     private static Map<Integer, Conta> contas = new HashMap<>();
