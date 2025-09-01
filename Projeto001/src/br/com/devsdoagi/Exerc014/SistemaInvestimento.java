@@ -66,7 +66,7 @@ public class SistemaInvestimento {
 
         try {
             Cliente cli = buscarCliente(cpf);
-            System.out.println("Investimenoto do cliente: " + cli.getNome());
+            System.out.println("Investimento do cliente: " + cli.getNome());
             for(Investimento investimento : cli.getInvestimentos()){
                 System.out.println("Investimentos " + investimento.getTipo() + " -> R$" + investimento.getValor());
             }
