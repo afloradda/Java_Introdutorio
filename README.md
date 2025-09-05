@@ -17,7 +17,7 @@ Conteúdos abordados
 - [x] Vetores e matrizes  
 - [x] Programação orientada a objetos (POO)  
 - [x] Coleções (List, Set, Map)  
-- [ ] Stream  
+- [x] Stream  
 - [ ] Introdução a APIs  
 - [ ] Construção de APIs com **Spring Boot**  
 
